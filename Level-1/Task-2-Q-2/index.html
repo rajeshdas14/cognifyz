@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time-Based Greeting Alert Box</title>
+</head>
+<body>
+  <script>
+    // Function to show a message based on the current time
+    function showGreetingMessage() {
+      const currentTime = new Date().getHours();
+
+      if (currentTime >= 6 && currentTime < 12) {
+        alert('Good morning!');
+      } else if (currentTime >= 12 && currentTime < 18) {
+        alert('Good afternoon!');
+      } else {
+        alert('Good evening!');
+      }
+    }
+
+    // Call showGreetingMessage() on page load
+    window.onload = showGreetingMessage;
+  </script>
+</body>
+</html>

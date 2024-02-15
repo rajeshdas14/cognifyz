@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic-Button</title>
+    <style>
+         body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+        #colorButton {
+            display: inline-block;
+            padding: 15px 30px;
+            color: white;
+            text-align: center;
+            background-color: lightblue;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton" onclick="changeColor()">Click me</button>
+    <script>
+        function changeColor() {
+  // Get the button element
+  const button = document.getElementById("colorButton");
+
+  // Change the background color
+  const newColor = getRandomColor();
+  button.style.backgroundColor = newColor;
+
+  // Save the new color in local storage
+  localStorage.setItem("buttonColor", newColor);
+}
+
+// Generate a random color
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Restore the saved color from local storage
+const savedColor = localStorage.getItem("buttonColor");
+if (savedColor) {
+  document.getElementById("colorButton").style.backgroundColor = savedColor;
+}
+    </script>
+</body>
+</html>
